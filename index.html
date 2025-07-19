@@ -1,12 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>BD Investment & Export Strategy</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Semi‐transparent Royal Bengal tiger background -->
+    <style>
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: url('/tiger.jpg') center/cover no-repeat;
+        opacity: 0.08;
+        z-index: -10;
+        pointer-events: none;
+      }
+    </style>
+
+
+    <!-- Inter font from Google -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

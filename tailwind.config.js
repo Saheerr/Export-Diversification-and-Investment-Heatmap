@@ -2,10 +2,18 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif']
+      },
+      colors: {
+        bdGreen: '#006a4e',
+        bdRed:   '#f42a41'
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }

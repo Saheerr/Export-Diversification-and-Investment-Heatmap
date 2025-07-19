@@ -1,12 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import ExportDashboard from './pages/ExportDashboard';
-import InvestmentMap from './pages/InvestmentMap';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar.jsx'
+import Home from './pages/Home.jsx'
+import ExportDashboard from './pages/ExportDashboard.jsx'
+import InvestmentMap from './pages/InvestmentMap.jsx'
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100 text-gray-900">
+      <Navbar />
+      <div className="pt-16"> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/exports" element={<ExportDashboard />} />
@@ -14,5 +16,5 @@ export default function App() {
         </Routes>
       </div>
     </Router>
-  );
+  )
 }
