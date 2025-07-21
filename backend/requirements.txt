@@ -1,5 +1,6 @@
 Flask==2.3.2
 Flask-Cors==3.0.10
+Flask-SQLAlchemy==3.0.3
 SQLAlchemy==1.4.48
 python-dotenv==1.0.0
 requests==2.31.0
