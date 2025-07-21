@@ -1,7 +1,8 @@
-
+# backend/app.py
 
 from flask import Flask, jsonify
 from flask_cors import CORS
+import os
 import psycopg2
 
 app = Flask(__name__)
@@ -11,19 +12,14 @@ CORS(app)
 def home():
     return '✅ Flask is running'
 
-@app.route('/api/exports', strict_slashes=False)
-def get_exports():
-    
-    return jsonify({"message": "this is /api/exports"})  
-
 @app.route('/api/exp-div-heatmap', strict_slashes=False)
 def exp_div_heatmap():
-    print("📡 Serving /api/exp-div-heatmap")  
+    print("📡 Serving /api/exp-div-heatmap")
     conn = psycopg2.connect(
-        host="localhost",
-        dbname="your_db",
-        user="your_user",
-        password="your_password"
+        host=os.getenv("DB_HOST", "localhost"),
+        dbname=os.getenv("DB_NAME", "heatmap_db"),
+        user=os.getenv("DB_USER", "heatmap_user"),
+        password=os.getenv("DB_PASS", "S3cureP@ssw0rd")
     )
     cur = conn.cursor()
     cur.execute("""
@@ -36,7 +32,7 @@ def exp_div_heatmap():
               'name', division_name,
               'metric', score
             ),
-            'geometry', ST_AsGeoJSON(geom)::json
+            'geometry', geometry
           )
         )
       )
@@ -48,5 +44,5 @@ def exp_div_heatmap():
     return jsonify(geojson)
 
 if __name__ == '__main__':
-   
+ 
     app.run(host='0.0.0.0', port=5000, debug=True)
